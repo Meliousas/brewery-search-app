@@ -10,6 +10,22 @@ namespace App1.Services
     {
         List<Beer> beers;
 
+        public MockBeerDataStore()
+        {
+            beers = new List<Beer>();
+            var mockBeers = new List<Beer>
+            {
+                new Beer { Id = Guid.NewGuid().ToString(), Name = "first beer name", Description = "Beer description" },
+
+            };
+            foreach (var beer in mockBeers)
+            {
+                beers.Add(beer);
+            }
+
+
+        }
+
         public Task<bool> AddItemAsync(Beer item)
         {
             throw new NotImplementedException();
