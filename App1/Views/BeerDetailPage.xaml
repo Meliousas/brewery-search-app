@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.Views.BeerDetailPage"
+             Title="{Binding Title}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!--Page Level Resources: Compatibile with Xamarin Live Player -->
+            <Color x:Key="Primary">#2196F3</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout Spacing="20" Padding="15">
+        <Label Text="Name:" FontSize="Medium" />
+        <Label Text="{Binding Beer.Name}" FontSize="Small" />
+        <Label Text="Description:" FontSize="Medium" />
+        <Label Text="{Binding Beer.Description}" FontSize="Small" />
+        <Button Margin="0,10,0,0" Text="Add to my beer list " Clicked="Add_Clicked"
+                BackgroundColor="{StaticResource Primary}" TextColor="White" />
+    </StackLayout>
+</ContentPage>
