@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using SQLite;
 
 namespace App1.Models
 {
-    class Beer
+    public class Beer
     {
-        public string Id { get; set; }
-        public string Name { get;set }
+        [PrimaryKey, AutoIncrement] public int Id { get; set; }
+        public string Name { get; set; }
         public string Text { get; set; }
         public string Description { get; set; }
         public string Style { get; set; }
         public Brewery Brewery { get; set; }
+        public int Rate { get; set; }
     }
 }
