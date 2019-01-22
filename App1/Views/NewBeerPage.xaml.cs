@@ -1,34 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-
+using App1.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
-using App1.Models;
 
 namespace App1.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class NewItemPage : ContentPage
+    public partial class NewBeerPage : ContentPage
     {
-        public Item Item { get; set; }
+        public Beer Beer { get; set; }
 
-        public NewItemPage()
+        public NewBeerPage()
         {
             InitializeComponent();
 
-            Item = new Item
+            Beer = new Beer
             {
-                Text = "Item name",
-                Description = "This is an item description."
+                Name = "Beer name",
+                Description = "This is a beer description."
             };
-
             BindingContext = this;
         }
 
         async void Save_Clicked(object sender, EventArgs e)
         {
-            MessagingCenter.Send(this, "AddItem", Item);
+            MessagingCenter.Send(this, "AddItem", Beer);
             await Navigation.PopModalAsync();
         }
     }
