@@ -2,21 +2,19 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-
-using Xamarin.Forms;
-
 using App1.Models;
 using App1.Services;
+using Xamarin.Forms;
 
 namespace App1.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Beer> beerStore => DependencyService.Get<IDataStore<Beer>>() ?? new MockBeerDataStore();
+        public IDataStore<Beer> BeerStore => DependencyService.Get<IDataStore<Beer>>() ?? new MockBeerDataStore();
 
-        public IDataStore<Item> ItemStore => DependencyService.Get<IDataStore<Item>>() ?? new MockDataStore();
 
         bool isBusy = false;
+
         public bool IsBusy
         {
             get { return isBusy; }
@@ -24,6 +22,7 @@ namespace App1.ViewModels
         }
 
         string title = string.Empty;
+
         public string Title
         {
             get { return title; }
@@ -31,7 +30,7 @@ namespace App1.ViewModels
         }
 
         protected bool SetProperty<T>(ref T backingStore, T value,
-            [CallerMemberName]string propertyName = "",
+            [CallerMemberName] string propertyName = "",
             Action onChanged = null)
         {
             if (EqualityComparer<T>.Default.Equals(backingStore, value))
@@ -44,7 +43,9 @@ namespace App1.ViewModels
         }
 
         #region INotifyPropertyChanged
+
         public event PropertyChangedEventHandler PropertyChanged;
+
         protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             var changed = PropertyChanged;
@@ -53,6 +54,7 @@ namespace App1.ViewModels
 
             changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
         #endregion
     }
 }
