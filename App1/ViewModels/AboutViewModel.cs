@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Input;
-
 using Xamarin.Forms;
 
 namespace App1.ViewModels
@@ -11,7 +10,7 @@ namespace App1.ViewModels
         {
             Title = "About";
 
-            OpenWebCommand = new Command(() => Device.OpenUri(new Uri("https://xamarin.com/platform")));
+            OpenWebCommand = new Command(() => Device.OpenUri(new Uri("https://www.brewerydb.com/")));
         }
 
         public ICommand OpenWebCommand { get; }
